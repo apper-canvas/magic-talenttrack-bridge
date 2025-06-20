@@ -1,0 +1,113 @@
+[
+  {
+    "Id": 1,
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@email.com",
+    "phone": "+1 (555) 123-4567",
+    "position": "Senior Frontend Developer",
+    "stage": "Interview",
+    "resumeUrl": "https://example.com/resume/sarah-johnson.pdf",
+    "skills": ["React", "TypeScript", "Node.js", "GraphQL"],
+    "notes": [
+      {
+        "id": "1",
+        "content": "Strong technical skills, great communication during phone screen",
+        "timestamp": "2024-01-15T10:30:00Z",
+        "type": "interview"
+      },
+      {
+        "id": "2",
+        "content": "Referred by current employee Tom Wilson",
+        "timestamp": "2024-01-10T14:20:00Z",
+        "type": "general"
+      }
+    ],
+    "createdAt": "2024-01-08T09:00:00Z",
+    "updatedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Michael Chen",
+    "email": "michael.chen@email.com",
+    "phone": "+1 (555) 234-5678",
+    "position": "Product Manager",
+    "stage": "Screening",
+    "resumeUrl": "https://example.com/resume/michael-chen.pdf",
+    "skills": ["Product Strategy", "Agile", "Analytics", "User Research"],
+    "notes": [
+      {
+        "id": "3",
+        "content": "Impressive portfolio, 7 years experience at tech companies",
+        "timestamp": "2024-01-12T16:45:00Z",
+        "type": "general"
+      }
+    ],
+    "createdAt": "2024-01-05T11:15:00Z",
+    "updatedAt": "2024-01-12T16:45:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "Emily Rodriguez",
+    "email": "emily.rodriguez@email.com",
+    "phone": "+1 (555) 345-6789",
+    "position": "UX Designer",
+    "stage": "Offer",
+    "resumeUrl": "https://example.com/resume/emily-rodriguez.pdf",
+    "skills": ["Figma", "User Research", "Prototyping", "Design Systems"],
+    "notes": [
+      {
+        "id": "4",
+        "content": "Excellent design portfolio, team loved her work",
+        "timestamp": "2024-01-18T13:20:00Z",
+        "type": "interview"
+      },
+      {
+        "id": "5",
+        "content": "Salary expectation: $95k - $105k",
+        "timestamp": "2024-01-18T13:25:00Z",
+        "type": "compensation"
+      }
+    ],
+    "createdAt": "2024-01-02T08:30:00Z",
+    "updatedAt": "2024-01-18T13:25:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "David Kim",
+    "email": "david.kim@email.com",
+    "phone": "+1 (555) 456-7890",
+    "position": "Backend Developer",
+    "stage": "Applied",
+    "resumeUrl": "https://example.com/resume/david-kim.pdf",
+    "skills": ["Python", "Django", "PostgreSQL", "AWS"],
+    "notes": [],
+    "createdAt": "2024-01-20T15:45:00Z",
+    "updatedAt": "2024-01-20T15:45:00Z"
+  },
+  {
+    "Id": 5,
+    "name": "Lisa Thompson",
+    "email": "lisa.thompson@email.com",
+    "phone": "+1 (555) 567-8901",
+    "position": "Data Scientist",
+    "stage": "Hired",
+    "resumeUrl": "https://example.com/resume/lisa-thompson.pdf",
+    "skills": ["Python", "Machine Learning", "SQL", "Tableau"],
+    "notes": [
+      {
+        "id": "6",
+        "content": "PhD in Statistics, previous experience at Fortune 500 company",
+        "timestamp": "2024-01-01T10:00:00Z",
+        "type": "general"
+      },
+      {
+        "id": "7",
+        "content": "Start date: February 1st, 2024",
+        "timestamp": "2024-01-22T09:15:00Z",
+        "type": "offer"
+      }
+    ],
+    "createdAt": "2023-12-28T14:20:00Z",
+    "updatedAt": "2024-01-22T09:15:00Z"
+  }
+]

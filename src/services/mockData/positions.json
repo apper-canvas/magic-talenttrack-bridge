@@ -1,0 +1,37 @@
+[
+  {
+    "Id": 1,
+    "title": "Senior Frontend Developer",
+    "department": "Engineering",
+    "status": "Active",
+    "candidateCount": 3
+  },
+  {
+    "Id": 2,
+    "title": "Product Manager",
+    "department": "Product",
+    "status": "Active",
+    "candidateCount": 2
+  },
+  {
+    "Id": 3,
+    "title": "UX Designer",
+    "department": "Design",
+    "status": "Active",
+    "candidateCount": 1
+  },
+  {
+    "Id": 4,
+    "title": "Backend Developer",
+    "department": "Engineering",
+    "status": "Active",
+    "candidateCount": 1
+  },
+  {
+    "Id": 5,
+    "title": "Data Scientist",
+    "department": "Data",
+    "status": "Filled",
+    "candidateCount": 0
+  }
+]
