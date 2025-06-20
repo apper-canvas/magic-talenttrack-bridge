@@ -104,7 +104,88 @@ const candidateService = {
       (candidate.skills && candidate.skills.some(skill => 
         skill.toLowerCase().includes(searchTerm)
       ))
-    ).map(item => ({ ...item }));
+).map(item => ({ ...item }));
+  },
+
+  async scheduleInterview(candidateId, interviewData) {
+    await delay(300);
+    const candidate = data.find(item => item.Id === parseInt(candidateId, 10));
+    if (!candidate) {
+      throw new Error('Candidate not found');
+    }
+
+    const interview = {
+      id: Date.now().toString(),
+      ...interviewData,
+      candidateId: parseInt(candidateId, 10),
+      createdAt: new Date().toISOString()
+    };
+
+    // Store in candidate's interview history
+    candidate.interviews = candidate.interviews || [];
+    candidate.interviews.push(interview);
+    candidate.updatedAt = new Date().toISOString();
+
+    return { ...interview };
+  },
+
+  async getAvailableSlots() {
+    await delay(200);
+    const slots = [];
+    const today = new Date();
+    
+    // Generate available slots for the next 2 weeks
+    for (let i = 1; i <= 14; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+      
+      // Skip weekends
+      if (date.getDay() === 0 || date.getDay() === 6) continue;
+      
+      // Add morning and afternoon slots
+      const morningSlot = new Date(date);
+      morningSlot.setHours(10, 0, 0, 0);
+      const morningEnd = new Date(morningSlot);
+      morningEnd.setHours(11, 0, 0, 0);
+      
+      const afternoonSlot = new Date(date);
+      afternoonSlot.setHours(14, 0, 0, 0);
+      const afternoonEnd = new Date(afternoonSlot);
+      afternoonEnd.setHours(15, 0, 0, 0);
+      
+      slots.push({
+        id: `morning-${i}`,
+        title: 'Available',
+        start: morningSlot,
+        end: morningEnd,
+        type: 'available'
+      });
+      
+      slots.push({
+        id: `afternoon-${i}`,
+        title: 'Available',
+        start: afternoonSlot,
+        end: afternoonEnd,
+        type: 'available'
+      });
+    }
+    
+    return slots;
+  },
+
+  async getScheduledInterviews(candidateId) {
+    await delay(200);
+    const candidate = data.find(item => item.Id === parseInt(candidateId, 10));
+    if (!candidate || !candidate.interviews) {
+      return [];
+    }
+
+    return candidate.interviews.map(interview => ({
+      ...interview,
+      start: new Date(interview.start),
+      end: new Date(interview.end),
+      type: 'interview'
+    }));
   }
 };
 

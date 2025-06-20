@@ -2,12 +2,17 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import ApperIcon from '@/components/ApperIcon';
 import Avatar from '@/components/atoms/Avatar';
 import Badge from '@/components/atoms/Badge';
 import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Input';
 import candidateService from '@/services/api/candidateService';
+
+const localizer = momentLocalizer(moment);
 
 const CandidateDetail = ({ 
   candidate, 
@@ -16,14 +21,18 @@ const CandidateDetail = ({
   onUpdate,
   className = '' 
 }) => {
-  const [activeTab, setActiveTab] = useState('overview');
+const [activeTab, setActiveTab] = useState('overview');
   const [isUpdating, setIsUpdating] = useState(false);
   const [noteContent, setNoteContent] = useState('');
   const [isAddingNote, setIsAddingNote] = useState(false);
+  const [availableSlots, setAvailableSlots] = useState([]);
+  const [scheduledInterviews, setScheduledInterviews] = useState([]);
+  const [isScheduling, setIsScheduling] = useState(false);
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: 'User' },
     { id: 'notes', label: 'Notes', icon: 'MessageSquare' },
+    { id: 'calendar', label: 'Calendar', icon: 'Calendar' },
     { id: 'history', label: 'History', icon: 'Clock' }
   ];
 
@@ -72,7 +81,49 @@ const CandidateDetail = ({
     } finally {
       setIsAddingNote(false);
     }
+};
+
+  const handleScheduleInterview = async (slotInfo) => {
+    if (isScheduling) return;
+    
+    setIsScheduling(true);
+    try {
+      const interviewData = {
+        title: `Interview with ${candidate.name}`,
+        start: slotInfo.start,
+        end: slotInfo.end,
+        candidateId: candidate.Id,
+        type: 'interview'
+      };
+      
+      await candidateService.scheduleInterview(candidate.Id, interviewData);
+      await loadCalendarData();
+      toast.success('Interview scheduled successfully');
+    } catch (error) {
+      toast.error('Failed to schedule interview');
+    } finally {
+      setIsScheduling(false);
+    }
   };
+
+  const loadCalendarData = async () => {
+    try {
+      const [slots, interviews] = await Promise.all([
+        candidateService.getAvailableSlots(),
+        candidateService.getScheduledInterviews(candidate.Id)
+      ]);
+      setAvailableSlots(slots);
+      setScheduledInterviews(interviews);
+    } catch (error) {
+      console.error('Failed to load calendar data:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (candidate && activeTab === 'calendar') {
+      loadCalendarData();
+    }
+  }, [candidate, activeTab]);
 
   if (!candidate) return null;
 
@@ -317,6 +368,98 @@ const CandidateDetail = ({
                       </div>
                     )}
                   </div>
+                </div>
+)}
+
+              {activeTab === 'calendar' && (
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      Schedule Interview
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Click on an available time slot to schedule an interview with {candidate.name}.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white rounded-lg border border-gray-200 p-4">
+                    <div style={{ height: '400px' }}>
+                      <Calendar
+                        localizer={localizer}
+                        events={[...availableSlots, ...scheduledInterviews]}
+                        startAccessor="start"
+                        endAccessor="end"
+                        onSelectSlot={handleScheduleInterview}
+                        selectable={!isScheduling}
+                        views={['month', 'week', 'day']}
+                        defaultView="week"
+                        step={30}
+                        timeslots={2}
+                        eventPropGetter={(event) => ({
+                          style: {
+                            backgroundColor: event.type === 'available' ? '#10b981' : '#3b82f6',
+                            color: 'white',
+                            border: 'none',
+                            borderRadius: '4px'
+                          }
+                        })}
+                        components={{
+                          event: ({ event }) => (
+                            <div className="p-1">
+                              <div className="flex items-center gap-1">
+                                <ApperIcon 
+                                  name={event.type === 'available' ? 'Clock' : 'Calendar'} 
+                                  className="w-3 h-3" 
+                                />
+                                <span className="text-xs font-medium truncate">
+                                  {event.title}
+                                </span>
+                              </div>
+                            </div>
+                          )
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {scheduledInterviews.length > 0 && (
+                    <div>
+                      <h4 className="text-md font-semibold text-gray-900 mb-3">
+                        Scheduled Interviews ({scheduledInterviews.length})
+                      </h4>
+                      <div className="space-y-2">
+                        {scheduledInterviews.map((interview) => (
+                          <div key={interview.id} className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                            <div className="flex items-center gap-3">
+                              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                <ApperIcon name="Calendar" className="w-4 h-4 text-blue-600" />
+                              </div>
+                              <div>
+                                <p className="text-sm font-medium text-gray-900">
+                                  {interview.title}
+                                </p>
+                                <p className="text-xs text-gray-500">
+                                  {format(new Date(interview.start), 'MMM d, yyyy')} at {format(new Date(interview.start), 'h:mm a')}
+                                </p>
+                              </div>
+                            </div>
+                            <Badge variant="info" size="xs">
+                              Scheduled
+                            </Badge>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {isScheduling && (
+                    <div className="text-center py-4">
+                      <div className="inline-flex items-center gap-2 text-sm text-gray-600">
+                        <ApperIcon name="Loader2" className="w-4 h-4 animate-spin" />
+                        Scheduling interview...
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
