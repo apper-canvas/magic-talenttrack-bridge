@@ -1,0 +1,275 @@
+[
+  {
+    "Id": 1,
+    "title": "Technical Interview - Sarah Johnson",
+    "candidateName": "Sarah Johnson",
+    "candidateId": 1,
+    "startTime": "2024-01-15T10:00:00.000Z",
+    "endTime": "2024-01-15T11:00:00.000Z",
+    "status": "scheduled",
+    "type": "technical",
+    "location": "Virtual - Zoom",
+    "notes": [
+      {
+        "id": 101,
+        "content": "Candidate has strong React background. Focus on system design questions.",
+        "timestamp": "2024-01-14T15:30:00.000Z",
+        "author": "John Smith"
+      }
+    ],
+    "participants": [
+      {
+        "id": 201,
+        "name": "John Smith",
+        "email": "john.smith@company.com",
+        "role": "Technical Lead",
+        "addedAt": "2024-01-14T14:00:00.000Z"
+      },
+      {
+        "id": 202,
+        "name": "Emily Davis",
+        "email": "emily.davis@company.com",
+        "role": "Senior Developer",
+        "addedAt": "2024-01-14T14:05:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-14T09:00:00.000Z",
+    "updatedAt": "2024-01-14T15:30:00.000Z"
+  },
+  {
+    "Id": 2,
+    "title": "HR Interview - Michael Chen",
+    "candidateName": "Michael Chen",
+    "candidateId": 2,
+    "startTime": "2024-01-16T14:00:00.000Z",
+    "endTime": "2024-01-16T14:45:00.000Z",
+    "status": "completed",
+    "type": "behavioral",
+    "location": "Conference Room A",
+    "notes": [
+      {
+        "id": 102,
+        "content": "Great cultural fit. Strong communication skills and team collaboration experience.",
+        "timestamp": "2024-01-16T14:50:00.000Z",
+        "author": "Lisa Wong"
+      },
+      {
+        "id": 103,
+        "content": "Candidate expressed strong interest in the role and company mission.",
+        "timestamp": "2024-01-16T15:00:00.000Z",
+        "author": "Lisa Wong"
+      }
+    ],
+    "participants": [
+      {
+        "id": 203,
+        "name": "Lisa Wong",
+        "email": "lisa.wong@company.com",
+        "role": "HR Manager",
+        "addedAt": "2024-01-15T10:00:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-15T09:30:00.000Z",
+    "updatedAt": "2024-01-16T15:00:00.000Z"
+  },
+  {
+    "Id": 3,
+    "title": "System Design Interview - Alex Rodriguez",
+    "candidateName": "Alex Rodriguez",
+    "candidateId": 3,
+    "startTime": "2024-01-17T11:00:00.000Z",
+    "endTime": "2024-01-17T12:30:00.000Z",
+    "status": "rescheduled",
+    "type": "system-design",
+    "location": "Virtual - Google Meet",
+    "notes": [
+      {
+        "id": 104,
+        "content": "Rescheduled due to candidate's emergency. Original time was 2024-01-16T16:00:00.000Z",
+        "timestamp": "2024-01-16T12:00:00.000Z",
+        "author": "David Kim"
+      }
+    ],
+    "participants": [
+      {
+        "id": 204,
+        "name": "David Kim",
+        "email": "david.kim@company.com",
+        "role": "Principal Engineer",
+        "addedAt": "2024-01-15T11:00:00.000Z"
+      },
+      {
+        "id": 205,
+        "name": "Rachel Green",
+        "email": "rachel.green@company.com",
+        "role": "Engineering Manager",
+        "addedAt": "2024-01-15T11:05:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-15T10:45:00.000Z",
+    "updatedAt": "2024-01-16T12:00:00.000Z"
+  },
+  {
+    "Id": 4,
+    "title": "Final Interview - Emma Thompson",
+    "candidateName": "Emma Thompson",
+    "candidateId": 4,
+    "startTime": "2024-01-18T15:30:00.000Z",
+    "endTime": "2024-01-18T16:30:00.000Z",
+    "status": "scheduled",
+    "type": "final",
+    "location": "Executive Conference Room",
+    "notes": [],
+    "participants": [
+      {
+        "id": 206,
+        "name": "Robert Johnson",
+        "email": "robert.johnson@company.com",
+        "role": "VP Engineering",
+        "addedAt": "2024-01-17T09:00:00.000Z"
+      },
+      {
+        "id": 207,
+        "name": "Lisa Wong",
+        "email": "lisa.wong@company.com",
+        "role": "HR Manager",
+        "addedAt": "2024-01-17T09:05:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-17T08:45:00.000Z",
+    "updatedAt": "2024-01-17T09:05:00.000Z"
+  },
+  {
+    "Id": 5,
+    "title": "Technical Screen - James Wilson",
+    "candidateName": "James Wilson",
+    "candidateId": 5,
+    "startTime": "2024-01-19T09:00:00.000Z",
+    "endTime": "2024-01-19T10:00:00.000Z",
+    "status": "cancelled",
+    "type": "technical",
+    "location": "Virtual - Teams",
+    "notes": [
+      {
+        "id": 105,
+        "content": "Candidate withdrew application due to competing offer acceptance.",
+        "timestamp": "2024-01-18T16:00:00.000Z",
+        "author": "Lisa Wong"
+      }
+    ],
+    "participants": [
+      {
+        "id": 208,
+        "name": "Tom Anderson",
+        "email": "tom.anderson@company.com",
+        "role": "Senior Developer",
+        "addedAt": "2024-01-17T14:00:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-17T13:30:00.000Z",
+    "updatedAt": "2024-01-18T16:00:00.000Z"
+  },
+  {
+    "Id": 6,
+    "title": "Code Review Session - Maria Garcia",
+    "candidateName": "Maria Garcia",
+    "candidateId": 6,
+    "startTime": "2024-01-22T13:00:00.000Z",
+    "endTime": "2024-01-22T14:30:00.000Z",
+    "status": "scheduled",
+    "type": "code-review",
+    "location": "Virtual - Zoom",
+    "notes": [
+      {
+        "id": 106,
+        "content": "Candidate to present their take-home assignment. Focus on code quality and architecture decisions.",
+        "timestamp": "2024-01-21T10:00:00.000Z",
+        "author": "Sarah Mitchell"
+      }
+    ],
+    "participants": [
+      {
+        "id": 209,
+        "name": "Sarah Mitchell",
+        "email": "sarah.mitchell@company.com",
+        "role": "Tech Lead",
+        "addedAt": "2024-01-20T15:00:00.000Z"
+      },
+      {
+        "id": 210,
+        "name": "Kevin Park",
+        "email": "kevin.park@company.com",
+        "role": "Senior Developer",
+        "addedAt": "2024-01-20T15:05:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-20T14:30:00.000Z",
+    "updatedAt": "2024-01-21T10:00:00.000Z"
+  },
+  {
+    "Id": 7,
+    "title": "Cultural Fit Interview - Daniel Lee",
+    "candidateName": "Daniel Lee",
+    "candidateId": 7,
+    "startTime": "2024-01-23T10:30:00.000Z",
+    "endTime": "2024-01-23T11:15:00.000Z",
+    "status": "scheduled",
+    "type": "cultural",
+    "location": "Café Meeting Room",
+    "notes": [],
+    "participants": [
+      {
+        "id": 211,
+        "name": "Amanda Brown",
+        "email": "amanda.brown@company.com",
+        "role": "Team Lead",
+        "addedAt": "2024-01-22T11:00:00.000Z"
+      },
+      {
+        "id": 212,
+        "name": "Chris Taylor",
+        "email": "chris.taylor@company.com",
+        "role": "Product Manager",
+        "addedAt": "2024-01-22T11:05:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-22T10:45:00.000Z",
+    "updatedAt": "2024-01-22T11:05:00.000Z"
+  },
+  {
+    "Id": 8,
+    "title": "Technical Deep Dive - Lisa Chen",
+    "candidateName": "Lisa Chen",
+    "candidateId": 8,
+    "startTime": "2024-01-24T14:00:00.000Z",
+    "endTime": "2024-01-24T15:30:00.000Z",
+    "status": "completed",
+    "type": "technical",
+    "location": "Innovation Lab",
+    "notes": [
+      {
+        "id": 107,
+        "content": "Excellent problem-solving skills demonstrated. Strong understanding of microservices architecture.",
+        "timestamp": "2024-01-24T15:45:00.000Z",
+        "author": "Michael Foster"
+      },
+      {
+        "id": 108,
+        "content": "Candidate showed great depth in distributed systems knowledge. Recommended for next round.",
+        "timestamp": "2024-01-24T16:00:00.000Z",
+        "author": "Michael Foster"
+      }
+    ],
+    "participants": [
+      {
+        "id": 213,
+        "name": "Michael Foster",
+        "email": "michael.foster@company.com",
+        "role": "Principal Architect",
+        "addedAt": "2024-01-23T09:00:00.000Z"
+      }
+    ],
+    "createdAt": "2024-01-23T08:30:00.000Z",
+    "updatedAt": "2024-01-24T16:00:00.000Z"
+  }
+]

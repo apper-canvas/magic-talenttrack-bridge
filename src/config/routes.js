@@ -1,6 +1,7 @@
 import Dashboard from '@/components/pages/Dashboard';
 import Candidates from '@/components/pages/Candidates';
 import Pipeline from '@/components/pages/Pipeline';
+import InterviewCalendar from '@/components/pages/InterviewCalendar';
 
 export const routes = {
   dashboard: {
@@ -23,6 +24,13 @@ export const routes = {
     path: '/pipeline',
     icon: 'Workflow',
     component: Pipeline
+  },
+  calendar: {
+    id: 'calendar',
+    label: 'Calendar',
+    path: '/calendar',
+    icon: 'Calendar',
+    component: InterviewCalendar
   }
 };
 
